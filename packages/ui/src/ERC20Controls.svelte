@@ -23,19 +23,19 @@
 
     <div class="grid grid-cols-[2fr,1fr] gap-2">
       <label class="labeled-input">
-        <span>Name</span>
+        <span>Token Name</span>
         <input bind:value={opts.name}>
       </label>
 
       <label class="labeled-input">
-        <span>Symbol</span>
+        <span>Ticker</span>
         <input bind:value={opts.symbol}>
       </label>
     </div>
 
     <label class="labeled-input">
       <span class="flex justify-between pr-2">
-        Premint
+        Total Supply
         <HelpTooltip>Create an initial amount of tokens for the deployer.</HelpTooltip>
       </span>
       <input bind:value={opts.premint} placeholder="0" pattern={premintPattern.source}>
@@ -48,7 +48,7 @@
   <div class="checkbox-group">
     <label class:checked={opts.mintable}>
       <input type="checkbox" bind:checked={opts.mintable}>
-      Mintable
+      Can Mint Tokens
       <HelpTooltip>
         Privileged accounts will be able to create more supply.
       </HelpTooltip>
@@ -56,7 +56,7 @@
 
     <label class:checked={opts.burnable}>
       <input type="checkbox" bind:checked={opts.burnable}>
-      Burnable
+      Can Burn Tokens
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Burnable">
         Token holders will be able to destroy their tokens.
       </HelpTooltip>
@@ -64,7 +64,7 @@
 
     <label class:checked={opts.pausable}>
       <input type="checkbox" bind:checked={opts.pausable}>
-      Pausable
+      Can Pause All TX
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable">
         Privileged accounts will be able to pause the functionality marked as <code>whenNotPaused</code>.
         Useful for emergency response.
@@ -73,7 +73,7 @@
 
     <label class:checked={opts.permit || opts.votes}>
       <input type="checkbox" bind:checked={opts.permit}>
-      Permit
+      Permit Gasless TX
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Permit">
         Without paying gas, token holders will be able to allow third parties to transfer from their account.
       </HelpTooltip>
@@ -81,7 +81,7 @@
 
     <label class:checked={opts.votes}>
       <input type="checkbox" bind:checked={opts.votes}>
-      Votes
+      Voting Ability
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Votes">
         Keeps track of historical balances for voting in on-chain governance, with a way to delegate one's voting power to a trusted account.
       </HelpTooltip>
@@ -89,7 +89,7 @@
 
     <label class:checked={opts.flashmint}>
       <input type="checkbox" bind:checked={opts.flashmint}>
-      Flash Minting
+      Flash Loan Minting
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20FlashMint">
         Built-in flash loans. Lend tokens without requiring collateral as long as they're returned in the same transaction.
       </HelpTooltip>
@@ -97,7 +97,7 @@
 
     <label class:checked={opts.snapshots}>
       <input type="checkbox" bind:checked={opts.snapshots}>
-      Snapshots
+      Snapshot of Holders
       <HelpTooltip link="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20#ERC20Snapshot">
         Privileged accounts will be able to store snapshots of balances that can be retrieved later.
         <br>
